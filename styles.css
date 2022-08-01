@@ -1,0 +1,96 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700;900&display=swap');
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: 'Roboto', sans-serif;
+    
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+.row {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 12px;
+}
+
+a {
+    text-decoration: none;
+}
+
+li {
+    list-style-type: none;
+}
+
+ul {
+    
+}
+
+
+/* NAV */
+
+.nav__logo {
+    width: 100x;
+    height: 100px;
+}
+
+.nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    max-width: 1200px;
+    height: 120px;
+    margin: 0 auto;
+    background-color: #4776a3 !important ;
+    padding: 0 20px;
+}
+
+.nav__links {
+    display: flex;
+    margin-right: 100px;
+
+}
+
+.nav__link:hover {
+    background-color: #c2d1e0;
+    color: black;
+    padding: 8px;
+    border-radius: 6px;
+  }
+
+.nav__link {
+    margin-right: 46px;
+    font-weight: 700;
+}
+
+
+.nav input[type=text] {
+    padding: 6px;
+    border: none;
+    margin-top: 8px;
+    margin-right: 16px;
+    font-size: 17px;
+  }
+
+  .nav__search--container button {
+    float: right;
+    padding: 6px 10px;
+    margin-top: 8px;
+    margin-right: px;
+    background: #ddd;
+    font-size: 17px;
+    border: none;
+    cursor: pointer;
+  }
+
+  .nav__search--container button:hover {
+    background: #ccc;
+  }
+
+ 
