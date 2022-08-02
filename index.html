@@ -6,17 +6,17 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>AS Movies</title>
     <link rel="stylesheet" href="styles.css" />
-    <script src="app.js"></script>
+    
     <script
       src="https://kit.fontawesome.com/6d09b3df30.js"
       crossorigin="anonymous"
     ></script>
   </head>
-
   <body>
+    <header> 
     <div class="container">
       <div class="row">
-        <nav class="nav">
+        <nav class="nav">        
           <img src="./Images/logo.png" class="nav__logo" alt="" />
 
           <ul class="nav__links">
@@ -25,29 +25,28 @@
             <li class="nav__link">Country</li>
             <li class="nav__link">Movies</li>
             <li class="nav__link">Top IMDb</li>
-          </ul>
-          <div class="nav__search--container">
-            <form action="/action_page.php">
-              <input type="text" placeholder="Search.." name="search" />
-              <button type="submit"><i class="fa fa-search"></i></button>
-            </form>
-          </div>
+          </ul> 
+          
+          <form id="searchbar" action="/action_page.php">
+            <input type="text" placeholder="Search.." name="search" class="search" />
+            <button type="submit" class="search__btn"><i class="fa fa-search"></i></button>
+          </form>
+
         </nav>
       </div>
     </div>
+</header>
+
 
     
-     <section id="recommendations">
-            <div class="row row_recommendations">
-        <h2 class="recommendations__title">Recommendations</h2>
-
+    <main id="main">
+     <div class="row">
+        <h2 class="recommendation">Recommendation</h2>
         <div class="movie__container">
-            <div class="movie">
-          <img
-            src="./Images/MoviePicture.jpg"
-            class="recommendations__img"
-            alt=""
+        <div class="movie">
+          <img src="./Images/MoviePicture.jpg" alt="Image"
           />
+
           <div class="movie__info">
             <h3>Movie Title</h3>
             <span class="green">9.8</span>
@@ -62,63 +61,60 @@
           </div>
         </div>
         <div class="movie">
-            <img
-              src="./Images/MoviePicture.jpg"
-              class="recommendations__img"
-              alt=""
+          <img src="./Images/MoviePicture.jpg" alt="Image"
+          />
+          
+          <div class="movie__info">
+            <h3>Movie Title</h3>
+            <span class="green">9.8</span>
+          </div>
+
+          <div class="overview">
+
+            <h3>Overview</h3>
+            Lorem ipsum dolor sit amet consectetur, adipisicing elit. Beatae
+            voluptate illum magni adipisci. Cupiditate, veritatis atque.
+            Consequatur dolorum velit saepe.
+          </div>
+        </div> <div class="movie">
+            <img src="./Images/MoviePicture.jpg" alt="Image"
             />
+            
             <div class="movie__info">
               <h3>Movie Title</h3>
               <span class="green">9.8</span>
             </div>
   
             <div class="overview">
+  
+              <h3>Overview</h3>
               Lorem ipsum dolor sit amet consectetur, adipisicing elit. Beatae
               voluptate illum magni adipisci. Cupiditate, veritatis atque.
               Consequatur dolorum velit saepe.
             </div>
-          </div>
-          <div class="movie">
-            <img
-              src="./Images/MoviePicture.jpg"
-              class="recommendations__img"
-              alt=""
+          </div> <div class="movie">
+            <img src="./Images/MoviePicture.jpg" alt="Image"
             />
+            
             <div class="movie__info">
               <h3>Movie Title</h3>
               <span class="green">9.8</span>
             </div>
   
             <div class="overview">
-              Lorem ipsum dolor sit amet consectetur, adipisicing elit. Beatae
-              voluptate illum magni adipisci. Cupiditate, veritatis atque.
-              Consequatur dolorum velit saepe.
-            </div>
-          </div>
-          <div class="movie">
-            <img
-              src="./Images/MoviePicture.jpg"
-              class="recommendations__img"
-              alt=""
-            />
-            <div class="movie__info">
-              <h3>Movie Title</h3> 
-              <span class="green">9.8</span>
-            </div>
   
-            <div class="overview">
+              <h3>Overview</h3>
               Lorem ipsum dolor sit amet consectetur, adipisicing elit. Beatae
               voluptate illum magni adipisci. Cupiditate, veritatis atque.
               Consequatur dolorum velit saepe.
             </div>
           </div>
-           
-            </div>
-    </div>
-      </div>
-    </div>
+        </div>
+        </div>
+</main>
 <div class="latest__movies"></div>
-    .
-    </section>
+    
+
+     <script src="app.js"></script> 
   </body>
 </html>
