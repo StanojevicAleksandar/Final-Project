@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>AS Movies</title>
     <link rel="stylesheet" href="styles.css" />
-    <script src="app.js" defer></script>
+    
 
     <script
       src="https://kit.fontawesome.com/6d09b3df30.js"
@@ -18,49 +18,37 @@
       <div class="container">
         <div class="row">
           <nav class="nav">
-            <img src="./Images/logo.png" class="nav__logo" alt="" />
-
+            <img src="./Images/logo.png" class="nav__logo" alt="" >
+            
             <div class="nav__links">
-              <li class="nav__link">Home</li>
+              <a class="nav__link" href="http://127.0.0.1:5500/index.html?">Home</a>
+              
               <div class="dropdown">
-                <li class="nav__link" data-dropdown-button >Genre
+                <a class="nav__link" data-dropdown-button href="">Genre
+                
                   
-                  <ul class="dropdown__menu">
-                    <li>Action</li>
-                    <li>Adventure</li>
-                    <li>Animation</li>
-                    <li>Comedy</li>
-                    <li>Crime</li>
-                    <li>Documentary</li>
-                    <li>Drama</li>
-                    <li>Family</li>
-                    <li>Fantasy</li>
-                    <li>History</li>
-                    <li>Horror</li>
-                    <li>Music</li>
-                    <li>Mistery</li>
-                    <li>Romance</li>
-                    <li>Science Fiction</li>
-                    <li>Thriller</li>
-                    <li>TV Movie</li>
-                    <li>War</li>
-                    <li>Western</li>
-                </ul>
-            </li>
+                  <div id="dropdown__menu">
+                    <div class="tag">Action</div>
+                    <div class="tag">Adventure</div>
+                    <div class="tag">Animation</div>
+                  </div>
+                </a>
+            
               </div>
-              <li class="nav__link">Country</li>
-              <li class="nav__link">Movies</li>
-              <li class="nav__link">Top IMDb</li>
+              <a class="nav__link" href="">Country</a>
+              <a class="nav__link" href="">Movies</a>
+              <a class="nav__link" href="">Top IMDb</a>
             </div>
 
-            <form id="searchbar">
+            <form id="form">
               <input
                 type="text"
                 placeholder="Search.."
                 name="search"
                 class="search"
+                id="search"
               />
-              <button type="submit" class="search__btn">
+              <button type="submit" id = "search" class="search__btn">
                 <i class="fa fa-search"></i>
               </button>
             </form>
@@ -70,7 +58,7 @@
     </header>
 
     <div class="row">
-      <h2 class="recommendation">Recommendation</h2>
+      <h2 class="recommendation white">Recommendation</h2>
       
       <main id="main">
 
@@ -91,6 +79,7 @@
             </div>
         </main>
     </div>
-    <div class="latest__movies"></div>
-  </body>
+  
+    </body>
+  <script src="app.js" defer></script>
 </html>

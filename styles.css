@@ -16,10 +16,14 @@ html {
   max-width: 1200px;
   margin: 0 auto;
   padding: 0 12px;
+  background-color: #d8d8d8;
 }
 
 a {
   text-decoration: none;
+  list-style: none;
+  cursor: pointer;
+  color: #fff;
 }
 
 li {
@@ -27,11 +31,14 @@ li {
   cursor: pointer;
 }
 
+.white {
+    color: #fff;
+}
 /* NAV */
 
 .nav__logo {
-  width: 100x;
-  height: 100px;
+  width: 80x;
+  height: 80px;
 }
 
 .nav {
@@ -48,14 +55,15 @@ li {
 
 .nav__links {
   display: flex;
-  margin-right: 100px;
-  color: #fff;
+  margin-right: 80px;
+  color: #fff !important ;
   list-style: none;
+  width: 100%;
 }
 
 .nav__link:hover {
-  background-color: orange;
-  color: black;
+  background-color: orange !important ;
+  color: black !important ;
   border-radius: 6px;
   display: inline-block;
   width: 80px;
@@ -68,13 +76,14 @@ li {
 .nav__link {
   margin-right: 46px;
   font-weight: 700;
-  background: rgba(255, 255, 255, 0.05);
+  background: rgba(255, 255, 255, 0.05) !important ;
   display: inline-block;
   width: 80px;
   height: 36px;
   display: flex;
   align-items: center;
   justify-content: center;
+  
 }
 
 .nav__links > ul {
@@ -82,8 +91,8 @@ li {
   padding: 0;
   margin: 0;
   display: inline-block;
-  background: #131414;
-  color: #fff;
+  background: #131414 !important ;
+  color: #fff !important ;
 }
 
 .search {
@@ -92,6 +101,7 @@ li {
   margin-top: 8px;
   margin-right: 16px;
   font-size: 17px;
+  position: relative;
 }
 
 .search__btn {
@@ -99,10 +109,15 @@ li {
   padding: 6px 10px;
   margin-top: 8px;
   margin-right: px;
-  background: #ddd;
+  background: #fff; 
   font-size: 17px;
   border: none;
   cursor: pointer;
+  position: absolute;
+}
+
+.search__btn:hover {
+    background-color: orange;
 }
 
 /* DROPDOWN */
@@ -112,31 +127,31 @@ li {
   
 }
 
-.dropdown__menu {
-  display: none;
+#dropdown__menu {
   flex-wrap: wrap;
   flex-direction: column;
   justify-content: center;
+  
 }
 
 .dropdown.active > .nav__links,
-.nav__link:hover .dropdown__menu {
+.nav__link:hover #dropdown__menu {
   position: absolute;
   display: flex;
   height: 200px;
   width: 400px;
   left: 0;
   top: calc(100% + 0.25rem);
-  background-color: #242424;
-  color: #fff;
+  background-color: #242424 !important ;
+  color: #fff !important ;
   padding: 0.75rem;
   border-radius: 0.25rem;
-  box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.1);
+  box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.1) !important ;
   pointer-events: none;
   transition: opacity 300ms ease-in-out, transform 300ms ease-in-out;
 }
 
-.dropdown.active > .nav__link + .dropdown__menu {
+.dropdown.active > .nav__link + #dropdown__menu {
   pointer-events: auto;
   
 }
@@ -164,8 +179,9 @@ li {
   padding: 16px;
   margin: 2rem;
   border-radius: 3px;
-  box-shadow: 0.2px 4px 5px rgba(0, 0, 0, 0.1);
+  box-shadow: 0.2px 4px 5px rgba(0, 0, 0, 0.1)!important ;
   overflow: hidden;
+  background-color: white;
 }
 
 .movie img {
@@ -182,8 +198,8 @@ li {
 }
 
 .movie__info span {
-  background-color: #131414;
-  color: white;
+  background-color: #131414!important ;
+  color: white!important ;
   border-radius: 14px;
   padding: 0.25rem 0.5rem;
   font-weight: bold;
@@ -215,4 +231,73 @@ li {
 
 .movie:hover .overview {
   transform: translateY(0);
+}
+
+.tag.highlight {
+    background-color: orange;
+    color: #fff;
+}
+
+.no__results {
+    color: #fff;
+}
+
+
+/* LATEST MOVIES */ 
+
+.latest__movies {
+    margin-top: 36px;
+}
+
+/* Small phones, tablets, large smart phones */
+
+@media (max-width: 768px) {
+    .title {
+        font-size: 80px;
+    }
+    .header__para {
+        font-size: 20px;;
+    }
+
+    .modal {
+        top: 0;
+        left: 0;
+        height: auto;
+        transform: none;
+        width: 100%;
+        flex-direction: column-reverse;
+        border-radius: 0;
+    }
+    .modal__half {
+        width: 100%;
+    }
+}
+
+/* Small phones */
+
+@media (max-width: 480px) {
+    .title {
+        font-size: 52px;
+    }
+    .header__para {
+        font-size: 18px;
+    }
+    .nav__link:first-child {
+        display: none;
+    }
+    .project__description--para {
+        display: none;
+    }
+    .project__description {
+        left: 0;
+        padding: 0;
+        width: 100%;
+        text-align: center;
+    }
+    .project__description--sub-title {
+        margin-bottom: 8px;
+    }
+    .modal__half {
+        padding: 40px;
+    }
 }

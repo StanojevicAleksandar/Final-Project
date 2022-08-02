@@ -1,6 +1,7 @@
 const BASE_URL = 'https://api.themoviedb.org/3';
 const API_KEY = 'api_key=a199b4f09b3e7d29e56d2330f8014163';
 const API_URL = BASE_URL + "/discover/movie?sort_by=popularity.desc&" + API_KEY;
+const LATEST_URL =  BASE_URL + "/discover/movie?sort_by=release_date.desc&" + API_KEY;
 const IMG_URL = "https://image.tmdb.org/t/p/w500";
 const searchURL = BASE_URL + "/search/movie?" + API_KEY;
 
@@ -84,13 +85,67 @@ const genres = [{
 const main = document.getElementById("main");
 const form = document.getElementById("form");
 const search = document.getElementById("search");
+const tagsEl = document.getElementById("dropdown__menu");
+
+var selectedGenre = []
+
+setGenre();
+function setGenre() {
+  tagsEl.innerHTML = '';
+  genres.forEach(genre => {
+    const t = document.createElement("div");
+    t.classList.add("tag");
+    t.id = genre.id;
+    t.innerText = genre.name;
+    t.addEventListener("click", () => {
+      if (selectedGenre.length == 0) {
+        selectedGenre.push(genre.id);
+      } else {
+        if (selectedGenre.includes(genre.id)) {
+          selectedGenre.forEach((id, idx) => {
+            if (id == genre.id) {
+              selectedGenre.splice(idx, 1);
+            }
+          })
+        } else {
+          selectedGenre.push(genre.id);
+        }
+      }
+      console.log(selectedGenre)
+      getMovies(API_URL + "&with_genres=" + encodeURI(selectedGenre.join(",")))
+      highlightSelection()
+
+    })
+    tagsEl.append(t);
+  })
+
+}
+
+function highlightSelection() {
+  document.querySelectorAll(".tag");
+  tagsEl.forEach(tag => {
+    tag.classList.remove("highlight")
+  })
+
+  if (selectedGenre.length != 0) {
+
+    selectedGenre.forEach(id => {
+      const highlightedTag = document.getElementById(id);
+      highlightedTag.classList.add("highlight")
+    })
+  }
+}
 
 getMovies(API_URL);
 
 function getMovies(url) {
   fetch(url).then(res => res.json()).then(data => {
     console.log(data.results)
-    showMovies(data.results.slice(0,8))
+    if(data.results.length !== 0) {
+      showMovies(data.results.slice(0, 12))
+    }else{
+      main.innerHTML = `<h1 class="no__results">No Results Found</h1>`
+    }
   })
 }
 
@@ -107,7 +162,7 @@ function showMovies(data) {
 
    
     
-      <img src="${IMG_URL + poster_path}" alt="${title}"
+      <img src="${poster_path? IMG_URL + poster_path : "http://via.placeholder.com/1080x1580"}" alt="${title}"
       />
 
       <div class="movie__info">
@@ -121,8 +176,8 @@ function showMovies(data) {
         ${overview}
       </div> </div> `
 
-      
-  
+
+
 
     main.appendChild(movieEl)
   })
@@ -138,21 +193,24 @@ function getColor(vote) {
   }
 }
 
-/*
-form.addEventListener('submit', (e) => {
+
+form.addEventListener("submit", (e) => {
   e.preventDefault();
 
   const searchTerm = search.value;
 
   if (searchTerm) {
-    getMovies(searchURL+"&query="+searchTerm)
+    getMovies(searchURL + "&query=" + searchTerm)
   } else {
     getMovies(API_URL);
   }
 
-}) */
+})
 
-document.addEventListener("active", e => {
+
+
+
+document.addEventListener("click", e => {
   const isDropdownButton = e.target.matches("[data-dropdown-button]")
   if (!isDropdownButton && e.target.closest("[data-dropdown]") !=null)
   return
