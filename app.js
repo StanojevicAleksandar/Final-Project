@@ -23,8 +23,6 @@ function showMovies(data) {
     movieEl.classList.add("movie");
     movieEl.innerHTML = `
     
-    <div class="movie__container">
-    <div class="movie">
       <img src="${IMG_URL + poster_path}" alt="${title}"
       />
 
@@ -39,6 +37,7 @@ function showMovies(data) {
         ${overview}
       </div>
 
+      
   `
 
   main.appendChild(movieEl);
