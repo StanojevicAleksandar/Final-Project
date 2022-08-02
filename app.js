@@ -1,7 +1,7 @@
 const BASE_URL = 'https://api.themoviedb.org/3';
 const API_KEY = 'api_key=a199b4f09b3e7d29e56d2330f8014163';
 const API_URL = BASE_URL + "/discover/movie?sort_by=popularity.desc&" + API_KEY;
-const LATEST_URL =  BASE_URL + "/discover/movie?sort_by=release_date.desc&" + API_KEY;
+const LATEST_URL = BASE_URL + "/discover/movie?sort_by=release_date.desc&" + API_KEY;
 const IMG_URL = "https://image.tmdb.org/t/p/w500";
 const searchURL = BASE_URL + "/search/movie?" + API_KEY;
 
@@ -87,6 +87,16 @@ const form = document.getElementById("form");
 const search = document.getElementById("search");
 const tagsEl = document.getElementById("dropdown__menu");
 
+const prev = document.getElementById("prev")
+const next = document.getElementById("next")
+const current = document.getElementById("current")
+
+var currentPage = 1;
+var nextPage = 2;
+var prevPage = 3;
+var lastUrl = '';
+var totalPages = 100;
+
 var selectedGenre = []
 
 setGenre();
@@ -139,11 +149,16 @@ function highlightSelection() {
 getMovies(API_URL);
 
 function getMovies(url) {
+  lastUrl = url;
   fetch(url).then(res => res.json()).then(data => {
     console.log(data.results)
-    if(data.results.length !== 0) {
-      showMovies(data.results.slice(0, 12))
-    }else{
+    if (data.results.length !== 0) {
+      showMovies(data.results.slice(0, 12));
+      currentPage = data.page;
+      nextPage = currentPage + 1;
+      prevPage = currentPage - 1;
+      totalPages = data.total_pages;
+    } else {
       main.innerHTML = `<h1 class="no__results">No Results Found</h1>`
     }
   })
@@ -162,7 +177,7 @@ function showMovies(data) {
 
    
     
-      <img src="${poster_path? IMG_URL + poster_path : "http://via.placeholder.com/1080x1580"}" alt="${title}"
+      <img src="${poster_path ? IMG_URL + poster_path : "http://via.placeholder.com/1080x1580"}" alt="${title}"
       />
 
       <div class="movie__info">
@@ -207,13 +222,29 @@ form.addEventListener("submit", (e) => {
 
 })
 
+next.addEventListener("click", () => {
+  if(nextPage <= totalPages){
+    pageCall(nextPage);
+  }
+})
+
+function pageCall(page){
+  let urlSplit = lastUrl.split("?");
+  let queryParams = urlSplit[1].split("&");
+  let key = queryParams[queryParams.length - 1].split("=");
+  if (key[0] != "page") {
+    let url = lastUrl + "&page=" + page;
+    getMovies(url);
+  }
+}
+
 
 
 
 document.addEventListener("click", e => {
   const isDropdownButton = e.target.matches("[data-dropdown-button]")
-  if (!isDropdownButton && e.target.closest("[data-dropdown]") !=null)
-  return
+  if (!isDropdownButton && e.target.closest("[data-dropdown]") != null)
+    return
 
   let currentDropdown
   if (isDropdownButton) {
