@@ -85,7 +85,7 @@ const genres = [{
 const main = document.getElementById("main");
 const form = document.getElementById("form");
 const search = document.getElementById("search");
-const tagsEl = document.getElementById("dropdown__menu");
+const tagsEl = document.getElementById("tags");
 
 const prev = document.getElementById("prev")
 const next = document.getElementById("next")
@@ -98,12 +98,12 @@ var lastUrl = '';
 var totalPages = 100;
 
 var selectedGenre = []
-/*
+
 setGenre();
 function setGenre() {
   tagsEl.innerHTML = '';
   genres.forEach(genre => {
-    const t = document.createElement("div");
+    const t = document.createElement("li");
     t.classList.add("tag");
     t.id = genre.id;
     t.innerText = genre.name;
@@ -131,21 +131,21 @@ function setGenre() {
 
 }
 
+
 function highlightSelection() {
-  document.querySelectorAll(".tag");
-  tagsEl.forEach(tag => {
+  const tags = document.querySelectorAll(".tag");
+  tags.forEach(tag => {
     tag.classList.remove("highlight")
   })
 
   if (selectedGenre.length != 0) {
-
     selectedGenre.forEach(id => {
-      const highlightedTag = document.getElementById(id);
-      highlightedTag.classList.add("highlight")
+      const hightlightedTag = document.getElementById(id);
+      hightlightedTag.classList.add("highlight")
     })
   }
 }
-*/
+
 getMovies(API_URL);
 
 function getMovies(url) {
@@ -225,35 +225,6 @@ function getColor(vote) {
   }
 }
 
-const dropdowns = document.querySelectorAll('.dropdown');
-dropdowns.forEach(dropdown => {
-  const select = dropdown.querySelector('select');
-  const caret = dropdown.querySelector('caret');
-  const menu = dropdown.querySelector('menu');
-  const options = dropdown.querySelectorAll('.menu li');
-  const selected = dropdown.querySelector('selected');
-
-  select.addEventListener('click', () => {
-    select.classList.toggle('select-clicked');
-    caret.classList.toggle('caret-rotate');
-    menu.classList.toggle('menu-open');
-  })
-
-  options.forEach(option => {
-    option.addEventListener('click', () => {
-      selected.innerText = option.innerText;
-      select.classList.remove('select-clicked');
-      caret.classList.remove('caret-rotate');
-      menu.classList.remove('menu-open');
-      options.forEach(option => {
-        option.classList.remove('active');
-      });
-      option.classList.add('active');
-    });
-  });
-});
-
-
 form.addEventListener("submit", (e) => {
   e.preventDefault();
 
@@ -295,32 +266,4 @@ function pageCall(page) {
     getMovies(url);
   }
 }
-/*
-const dropdowns = document.querySelectorAll('.dropdown');
-dropdowns.forEach(dropdown => {
-  const select = dropdown.querySelector('select');
-  const caret = dropdown.querySelector('caret');
-  const menu = dropdown.querySelector('menu');
-  const options = dropdown.querySelectorAll('.menu li');
-  const selected = dropdown.querySelector('selected');
-
-  select.addEventListener('click', () => {
-    select.classList.toggle('select-clicked');
-    caret.classList.toggle('caret-rotate');
-    menu.classList.toggle('menu-open');
-  })
-
-  options.forEach(option => {
-    option.addEventListener('click', () => {
-      selected.innerText = option.innerText;
-      select.classList.remove('select-clicked');
-      caret.classList.remove('caret-rotate');
-      menu.classList.remove('menu-open');
-      options.forEach(option => {
-        option.classList.remove('active');
-      });
-      option.classList.add('active');
-    });
-  });
-}); */
 

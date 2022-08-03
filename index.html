@@ -6,7 +6,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>AS Movies</title>
     <link rel="stylesheet" href="styles.css" />
-    
 
     <script
       src="https://kit.fontawesome.com/6d09b3df30.js"
@@ -18,21 +17,32 @@
       <div class="container">
         <div class="row">
           <nav class="nav">
-            <img src="./Images/logo.png" onclick="window.location.href='index.html'" class="nav__logo" alt="" />
+            <img
+              src="./Images/logo.png"
+              onclick="window.location.href='index.html'"
+              class="nav__logo"
+              alt=""
+            />
 
             <div class="nav__links">
-            </div>
-                <div class="dropdown">
-                    <div class="select">
-                        <span class="selected">Genre</span>
-                        <div class="caret"></div>
-                    </div>
-                    <ul class="menu">
-                        <li class="tag">Action</li>
-                        <li class="tag">Action</li>
-                        <li class="tag">Action</li>
-                    </ul>            
-                </div>
+
+            <div class="nav__link">
+            <li><a class="nav__link" href="#">Home</a></li>
+            <ul id="menu">
+              <li>
+                <a class="tags__container nav__link" nav__link href="#">Genre</a>
+                <ul id="tags">
+                  <li><a href="tag">Action</a></li>
+                  <li><a href="tag">Adventure</a></li>
+                  <li><a href="tag">Animation</a></li>
+                </ul>
+              </li>
+            </ul>
+              <li><a class="nav__link" href="#">About</a></li>
+          </div>
+        </div>
+
+            
 
             <form id="form">
               <input
@@ -79,19 +89,23 @@
     </div>
 
     <footer>
-        <div class="container">
-            <div class="row footer__row">
-                <figure>
-                    <img class="footer__img" onclick="window.location.href='index.html'" src="./Images/logo.png" alt="">
-                </figure>
-                <div class="footer__copyright">
-                    Copyright <i class="fas fa-copyright"></i> 2021 Aleksandar
-                    Stanojevic
-                  </div>
-            </div>
+      <div class="container">
+        <div class="row footer__row">
+          <figure>
+            <img
+              class="footer__img"
+              onclick="window.location.href='index.html'"
+              src="./Images/logo.png"
+              alt=""
+            />
+          </figure>
+          <div class="footer__copyright">
+            Copyright <i class="fas fa-copyright"></i> 2021 Aleksandar
+            Stanojevic
+          </div>
         </div>
+      </div>
     </footer>
     <script async src="app.js"></script>
   </body>
 </html>
-
