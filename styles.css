@@ -42,6 +42,7 @@ li {
 .nav__logo {
   width: 80x;
   height: 80px;
+  cursor: pointer;
 }
 
 .nav {
@@ -335,6 +336,28 @@ li {
     border: 5px solid #131414;
     font-size: 20px;
     font-weight: 600;
+}
+
+/* FOOTER */
+
+.footer__copyright {
+    color: white;
+    margin-top: 24px;
+}
+
+.footer__img {
+    width: 160px;
+    height: 120px;
+    cursor: pointer;
+    margin-top: 12px;
+
+}
+
+.footer__row {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 200px;
 }
 
 /* Small phones, tablets, large smart phones */
