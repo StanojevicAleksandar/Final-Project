@@ -134,16 +134,26 @@ li {
 }
 
 #dropdown__menu {
+    position: absolute;
   flex-wrap: wrap;
   flex-direction: column;
   justify-content: center;
-  display: none;
+  display: flex;
+  opacity: 0;
+  height: 200px;
+  width: 400px;
+  left: 0;
+  top: calc(100% + 0.25rem);
+  padding: 0.75rem;
+  border-radius: 0.25rem;
+  box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.1) !important ;
 }
 
 .dropdown.active > .nav__links,
 .nav__link:hover #dropdown__menu {
   position: absolute;
   display: flex;
+  opacity: 1;
   height: 200px;
   width: 400px;
   left: 0;
