@@ -18,25 +18,21 @@
       <div class="container">
         <div class="row">
           <nav class="nav">
-            <img src="./Images/logo.png" class="nav__logo" alt="" >
-            
+            <img src="./Images/logo.png" class="nav__logo" alt="" />
+
             <div class="nav__links">
-              <a class="nav__link" href="/index.html">Home</a>
-              
-              <div class="dropdown">
-                <a class="nav__link" data-dropdown-button href="">Genre
-                
-                  
-                  <div id="dropdown__menu">
-                    <div class="tag">Action</div>
-                    <div class="tag">Adventure</div>
-                    <div class="tag">Animation</div>
-                  </div>
-                </a>
-            
-              </div>
-              <a class="nav__link" href="">Country</a>
             </div>
+                <div class="dropdown">
+                    <div class="select">
+                        <span class="selected">Genre</span>
+                        <div class="caret"></div>
+                    </div>
+                    <ul class="menu">
+                        <li class="tag">Action</li>
+                        <li class="tag">Action</li>
+                        <li class="tag">Action</li>
+                    </ul>            
+                </div>
 
             <form id="form">
               <input
@@ -46,7 +42,7 @@
                 class="search"
                 id="search"
               />
-              <button type="submit" id = "search" class="search__btn">
+              <button type="submit" id="search" class="search__btn">
                 <i class="fa fa-search"></i>
               </button>
             </form>
@@ -57,32 +53,31 @@
 
     <div class="row">
       <h1 class="recommendation black">Recommendation</h1>
-      
-      <main id="main">
 
-            <div class="movie">
-                <img src="./Images/MoviePicture.jpg" alt="Image" />
-                
-                <div class="movie__info">
-                    <h3>Movie Title</h3>
-                    <span class="green">9.8</span>
-                </div>
-                
-                <div class="overview">
-                    <h3>Overview</h3>
-                    Lorem ipsum dolor sit amet consectetur, adipisicing elit. Beatae
-                    voluptate illum magni adipisci. Cupiditate, veritatis atque.
-                    Consequatur dolorum velit saepe.
-                </div>
-            </div>
-        </main>
-        <div class="pagination">
-            <div class="page" id="prev">Previous Page</div>
-            <div class="current" id="current">1</div>
-            <div class="page" id="next">Next Page</div>
+      <main id="main">
+        <div class="movie">
+          <img src="./Images/MoviePicture.jpg" alt="Image" />
+
+          <div class="movie__info">
+            <h3>Movie Title</h3>
+            <span class="green">9.8</span>
+          </div>
+
+          <div class="overview">
+            <h3>Overview</h3>
+            Lorem ipsum dolor sit amet consectetur, adipisicing elit. Beatae
+            voluptate illum magni adipisci. Cupiditate, veritatis atque.
+            Consequatur dolorum velit saepe.
+          </div>
         </div>
+      </main>
+      <div class="pagination">
+        <div class="page" id="prev">Previous Page</div>
+        <div class="current" id="current">1</div>
+        <div class="page" id="next">Next Page</div>
+      </div>
     </div>
-  
-    </body>
-  <script src="app.js" defer></script>
+    <script async src="app.js"></script>
+  </body>
 </html>
+

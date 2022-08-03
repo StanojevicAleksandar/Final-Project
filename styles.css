@@ -58,6 +58,9 @@ li {
 
 .nav__links {
   display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
   padding: 0px;
   color: #fff !important ;
   list-style: none;
@@ -130,46 +133,89 @@ li {
 /* DROPDOWN */
 
 .dropdown {
-  position: relative;
+    min-width: 15em;
+    position: relative;
+    margin: 2em;
 }
 
-#dropdown__menu {
+.dropdown *{
+    box-sizing: border-box;
+}
+
+.select {
+    background: #131414;
+    color: #fff;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border: 2px orange solid;
+    border-radius: .5em;
+    padding: 1em;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+.select-clicked {
+    border: 2px orange solid;
+    box-shadow: 0 0 0 0.8em #orange ;
+}
+
+.select:hover {
+    background: #fff;
+}
+
+.caret {
+    width: 0;
+    height: 0;
+    border-left: 5px solid transparent;
+    border-right: 5px solid transparent;
+    border-top: 6px solid #fff;
+    transition: 0.3s;
+}
+
+.caret-rotate {
+    transform: rotate(180deg);
+}
+
+.menu {
+    list-style: none;
+    padding: 0.2em 0.5em;
+    background: lightcoral;
+    border: 1px #f7e9c3 solid;
+    box-shadow: 0 0.5em 1em rgba (0,0,0,0.2);
+    border-radius: 0.5em;
+    color: aliceblue;
     position: absolute;
-  flex-wrap: wrap;
-  flex-direction: column;
-  justify-content: center;
-  display: flex;
-  opacity: 0;
-  height: 200px;
-  width: 400px;
-  left: 0;
-  top: calc(100% + 0.25rem);
-  padding: 0.75rem;
-  border-radius: 0.25rem;
-  box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.1) !important ;
+    top: 3em;
+    width: 100%;
+    transform: translateX(-50%);
+    opacity: 0;
+    display: none;
+    transition: 0.2s;
+    z-index: 1;
 }
 
-.dropdown.active > .nav__links,
-.nav__link:hover #dropdown__menu {
-  position: absolute;
-  display: flex;
-  opacity: 1;
-  height: 200px;
-  width: 400px;
-  left: 0;
-  top: calc(100% + 0.25rem);
-  background-color: #242424 !important ;
-  color: #fff !important ;
-  padding: 0.75rem;
-  border-radius: 0.25rem;
-  box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.1) !important ;
-  pointer-events: none;
-  transition: opacity 300ms ease-in-out, transform 300ms ease-in-out;
+.menu li {
+    padding: 0.7em 0.5em;
+    margin: 0.3em 0;
+    border-radius: 0.5em;
+    cursor: pointer;
 }
 
-.dropdown.active > .nav__link + #dropdown__menu {
-  pointer-events: auto;
+.menu li:hover {
+    background: orange;
 }
+.active {
+    background: grey;
+}
+
+.menu-open {
+    display: block;
+    opacity: 1;
+}
+
+
+
 
 /* RECOMMENDATIONS */
 

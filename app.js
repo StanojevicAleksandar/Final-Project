@@ -98,7 +98,7 @@ var lastUrl = '';
 var totalPages = 100;
 
 var selectedGenre = []
-
+/*
 setGenre();
 function setGenre() {
   tagsEl.innerHTML = '';
@@ -145,7 +145,7 @@ function highlightSelection() {
     })
   }
 }
-
+*/
 getMovies(API_URL);
 
 function getMovies(url) {
@@ -173,7 +173,7 @@ function getMovies(url) {
         next.classList.remove("disabled");
       }
 
-      form.scrollIntoView({behavior : "smooth"})
+      form.scrollIntoView({ behavior: "smooth" })
 
     } else {
       main.innerHTML = `<h1 class="no__results">No Results Found</h1>`
@@ -225,6 +225,34 @@ function getColor(vote) {
   }
 }
 
+const dropdowns = document.querySelectorAll('.dropdown');
+dropdowns.forEach(dropdown => {
+  const select = dropdown.querySelector('select');
+  const caret = dropdown.querySelector('caret');
+  const menu = dropdown.querySelector('menu');
+  const options = dropdown.querySelectorAll('.menu li');
+  const selected = dropdown.querySelector('selected');
+
+  select.addEventListener('click', () => {
+    select.classList.toggle('select-clicked');
+    caret.classList.toggle('caret-rotate');
+    menu.classList.toggle('menu-open');
+  })
+
+  options.forEach(option => {
+    option.addEventListener('click', () => {
+      selected.innerText = option.innerText;
+      select.classList.remove('select-clicked');
+      caret.classList.remove('caret-rotate');
+      menu.classList.remove('menu-open');
+      options.forEach(option => {
+        option.classList.remove('active');
+      });
+      option.classList.add('active');
+    });
+  });
+});
+
 
 form.addEventListener("submit", (e) => {
   e.preventDefault();
@@ -267,23 +295,32 @@ function pageCall(page) {
     getMovies(url);
   }
 }
+/*
+const dropdowns = document.querySelectorAll('.dropdown');
+dropdowns.forEach(dropdown => {
+  const select = dropdown.querySelector('select');
+  const caret = dropdown.querySelector('caret');
+  const menu = dropdown.querySelector('menu');
+  const options = dropdown.querySelectorAll('.menu li');
+  const selected = dropdown.querySelector('selected');
 
-
-
-
-document.addEventListener("click", e => {
-  const isDropdownButton = e.target.matches("[data-dropdown-button]")
-  if (!isDropdownButton && e.target.closest("[data-dropdown]") != null)
-    return
-
-  let currentDropdown
-  if (isDropdownButton) {
-    currentDropdown = e.target.closest("[data-dropdown]")
-    currentDropdown.classList.toggle("active")
-  }
-
-  document.querySelectorAll("[data-dropdown].active").forEach(dropdown => {
-    if (dropdown === currentDropdown) return
-    dropdown.classList.remove("active")
+  select.addEventListener('click', () => {
+    select.classList.toggle('select-clicked');
+    caret.classList.toggle('caret-rotate');
+    menu.classList.toggle('menu-open');
   })
-})
+
+  options.forEach(option => {
+    option.addEventListener('click', () => {
+      selected.innerText = option.innerText;
+      select.classList.remove('select-clicked');
+      caret.classList.remove('caret-rotate');
+      menu.classList.remove('menu-open');
+      options.forEach(option => {
+        option.classList.remove('active');
+      });
+      option.classList.add('active');
+    });
+  });
+}); */
+
